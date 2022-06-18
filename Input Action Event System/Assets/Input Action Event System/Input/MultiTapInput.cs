@@ -6,6 +6,11 @@ using UltEvents;
 public class MultiTapInput : IMultiTapInput
 {
     /// <summary>
+    /// explain the variables 
+    /// UltEvents are from a 3rd party library that allows you to create advanced unity evente
+    /// BoolData is a class that allows you to create a bool data type
+    /// TimerData is a class that allows you to create a timer data type
+    /// string input is a button name for the input
     // 0.4 duration is double tap 
     // 0.6 duration is triple tap
     /// </summary>
