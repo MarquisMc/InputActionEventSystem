@@ -41,6 +41,9 @@ public class InputActions
     // max tap number
     public int maxNum;
 
+    // MultiTapInput variable
+    // the number of taps occurred
+    [HideInInspector]
     public int tapCounter;
     
     // MultiTapInput variable
@@ -54,5 +57,8 @@ public class InputActions
     [Tooltip("these are the events that will be called when the input is triggered")] 
     public UltEvent inputEvent;
 
+    // multi tap input variable
+    // HoldAndWaitInput variable
+    // timer will count down when the input is pressed or held down
     public TimerData timerData = new TimerData();
 }
