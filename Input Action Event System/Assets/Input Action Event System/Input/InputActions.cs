@@ -39,7 +39,7 @@ public class InputActions
     
     // MultiTapInput variable
     // max tap number
-    public int maxNum;
+    public int maxTapNum;
 
     // MultiTapInput variable
     // the number of taps occurred
@@ -48,7 +48,7 @@ public class InputActions
     
     // MultiTapInput variable
     // the timer will start counting down from this value
-    public float startDuration;
+    public float tapDuration;
 
     // HoldAndPressInput variable
     // how long the hold input will be held for

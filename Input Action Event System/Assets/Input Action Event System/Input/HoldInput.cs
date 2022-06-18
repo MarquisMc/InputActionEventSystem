@@ -5,21 +5,10 @@ using UltEvents;
 
 public class HoldInput : IHoldInput
 {
-    // for the hold and wait function
-    float holdTimeDelay;
-
-    float hold;
-
-    private void Start()
-    {
-        hold = holdTimeDelay;
-    }
-
     public void HoldAndPress(KeyCode holdInput, KeyCode pressInput, UltEvent ultEvent, BoolData isListening)
     {
         if (Input.GetKey(holdInput) && Input.GetKeyDown(pressInput) && isListening.GetData())
         {
-            Debug.Log("press and hold");
             ultEvent.Invoke();
         }
     }
@@ -28,7 +17,6 @@ public class HoldInput : IHoldInput
     {
         if (Input.GetButton(holdInput) && Input.GetButtonDown(pressInput) && isListening.GetData())
         {
-            Debug.Log("press and hold");
             ultEvent.Invoke();
         }
     }
@@ -58,46 +46,43 @@ public class HoldInput : IHoldInput
         }
     }
 
-    public void HoldAndWaitButton(string holdInput, UltEvent ultEvent, BoolData isListening, FloatData holdTime)
+    public void HoldAndWaitButton(string holdInput, UltEvent ultEvent, BoolData isListening, float holdTime, TimerData timerData)
     {
-        //hold time delay is dynamic and hold time is static
-
         if (Input.GetButton(holdInput) && isListening.GetData())
         {
-            hold -= Time.deltaTime;
+            timerData.StartTimer();
 
+            //Debug.Log("hold and wait" + holdTime);
 
-            if (hold <= 0)
+            if (timerData.GetCurrentTime() <= 0)
             {
                 ultEvent.Invoke();
-
+                timerData.SetTimer(holdTime);
             }
         }
-        if (hold <= 0)
+        else
         {
-
-            hold = holdTime.GetDataMax();
+            timerData.SetTimer(holdTime);
         }
 
+        if (Input.GetButtonUp(holdInput))
+        {
+            timerData.StopTimer();
+        }
     }
 
     public void GetKeyUp(KeyCode HoldAndReleaseInput, UltEvent ultEvent, BoolData isListening)
     {
         if (Input.GetKeyUp(HoldAndReleaseInput) && isListening.GetData())
         {
-            
             ultEvent.Invoke();
         }
     }
 
     public void GetButtonUp(string holdAndReleaseInput, UltEvent ultEvent, BoolData isListening)
     {
-        // isListening will = true if the player is carrying a body 
-        // if the player is not carrying a body then is listening will be false
-
         if (Input.GetButtonUp(holdAndReleaseInput) && isListening.GetData())
         {
-            
             ultEvent.Invoke();
         }
     }

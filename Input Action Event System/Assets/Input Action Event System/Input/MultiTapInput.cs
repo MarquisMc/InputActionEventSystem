@@ -5,13 +5,6 @@ using UltEvents;
 
 public class MultiTapInput : IMultiTapInput
 {
-    [SerializeField]
-    int maxTapCounter;
-
-    public int tapCounter;
-
-    float delay = 0;
-    bool delayOn = false;
     /// <summary>
     // 0.4 duration is double tap 
     // 0.6 duration is triple tap
@@ -19,91 +12,91 @@ public class MultiTapInput : IMultiTapInput
 
     // this function is called when the input is triggered
     // it will check if the input is a multi tap input
-    public int MultiTap(KeyCode input, UltEvent ultEvent, BoolData isListening, int maxNum, float startDuration, int tapCount, TimerData timerData)
+    public int MultiTap(KeyCode input, UltEvent ultEvent, BoolData isListening, int maxNum, float tapDuration, int tapCounter, TimerData timerData)
     {
         if (Input.GetKeyDown(input) && isListening.GetData())
         {
-            tapCount++;
+            tapCounter++;
 
-            Debug.Log("Tap " + tapCount);
+            Debug.Log("Tap " + tapCounter);
 
-            if (tapCount >= maxNum)
+            if (tapCounter >= maxNum)
             {             
                 ultEvent.Invoke();
-                tapCount = 0;
+                tapCounter = 0;
             }
         }
 
         // using timer data to start and stop the timer
         // if tapCounter is greater than or equal to 1 but less than maxNum 
         //then start the timer and when the timer is 0 then set the tapCounter to 0
-        if (tapCount >= 1 && tapCount < maxNum)
+        if (tapCounter >= 1 && tapCounter < maxNum)
         {
             timerData.StartTimer();
 
             if (timerData.GetCurrentTime() <= 0)
             {
-                tapCount = 0;
+                tapCounter = 0;
                 timerData.StopTimer();
-                timerData.SetTimer(startDuration);
+                timerData.SetTimer(tapDuration);
             }
         }
         else
         {
-            timerData.SetTimer(startDuration);
+            timerData.SetTimer(tapDuration);
             timerData.StopTimer();
         }
 
-        return tapCount;
+        return tapCounter;
     }
     
-    public int MultiTapButton(string input, UltEvent ultEvent, BoolData isListening, int maxNum, float startDuration, int tapCount, TimerData timerData)
+    public int MultiTapButton(string input, UltEvent ultEvent, BoolData isListening, int maxNum, float tapDuration, int tapCounter, TimerData timerData)
     {
         if (Input.GetKeyDown(input) && isListening.GetData())
         {
-            tapCount++;
+            tapCounter++;
 
-            Debug.Log("Tap " + tapCount);
+            Debug.Log("Tap " + tapCounter);
 
-            if (tapCount >= maxNum)
+            if (tapCounter >= maxNum)
             {
                 ultEvent.Invoke();
-                tapCount = 0;
+                tapCounter = 0;
             }
         }
 
         // using timer data to start and stop the timer
         // if tapCounter is greater than or equal to 1 but less than maxNum 
         //then start the timer and when the timer is 0 then set the tapCounter to 0
-        if (tapCount >= 1 && tapCount < maxNum)
+        if (tapCounter >= 1 && tapCounter < maxNum)
         {
             timerData.StartTimer();
 
             if (timerData.GetCurrentTime() <= 0)
             {
-                tapCount = 0;
+                tapCounter = 0;
                 timerData.StopTimer();
-                timerData.SetTimer(startDuration);
+                timerData.SetTimer(tapDuration);
             }
         }
         else
         {
-            timerData.SetTimer(startDuration);
+            timerData.SetTimer(tapDuration);
             timerData.StopTimer();
         }
 
-        return tapCount;
+        return tapCounter;
     }
 
-    public void BuffTapButton(string input, float delayTime, UltEvent ultEvent, BoolData isListening, TimerData timerData)
+    public void BuffTap(KeyCode input, float delayTime, UltEvent ultEvent, BoolData isListening, TimerData timerData)
     {
-        if (Input.GetButtonDown(input))
+        if (Input.GetKeyDown(input) && isListening.GetData())
         {
-            timerData.StartTimer();
             timerData.SetTimer(delayTime);
+            timerData.StartTimer();
         }
 
-        if(timerData.GetCurrentTime() <= 0 && isListening.GetData())
+        if (timerData.GetCurrentTime() <= 0)
         {
             ultEvent.Invoke();
             timerData.StopTimer();
@@ -111,12 +104,47 @@ public class MultiTapInput : IMultiTapInput
         }
     }
 
+    public void BuffTapButton(string input, float delayTime, UltEvent ultEvent, BoolData isListening, TimerData timerData)
+    {
+        if (Input.GetButtonDown(input) && isListening.GetData())
+        {
+            timerData.SetTimer(delayTime);
+            timerData.StartTimer();
+        }
+
+        if(timerData.GetCurrentTime() <= 0)
+        {
+            ultEvent.Invoke();
+            timerData.StopTimer();
+            timerData.SetTimer(delayTime);
+        }
+    }
+
+    public void OrBuffTap(KeyCode input, float delayTime, UltEvent ultEvent, GetBoolData ActiveBools, TimerData timerData)
+    {
+        if (Input.GetKeyDown(input))
+        {
+            timerData.SetTimer(delayTime);
+            timerData.StartTimer();
+        }
+
+        foreach (BoolData boolData in ActiveBools.wantedBoolDatas)
+        {
+            if (timerData.GetCurrentTime() <= 0 && boolData.GetData())
+            {
+                ultEvent.Invoke();
+                timerData.StopTimer();
+                timerData.SetTimer(delayTime);
+            }
+        }
+    }
+
     public void OrBuffTapButton(string input, float delayTime, UltEvent ultEvent, GetBoolData ActiveBools, TimerData timerData)
     {
         if (Input.GetButtonDown(input))
         {
-            timerData.StartTimer();
             timerData.SetTimer(delayTime);
+            timerData.StartTimer();
         }
 
         foreach (BoolData boolData in ActiveBools.wantedBoolDatas)
