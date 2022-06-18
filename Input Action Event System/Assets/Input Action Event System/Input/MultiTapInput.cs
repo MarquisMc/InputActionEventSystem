@@ -17,7 +17,7 @@ public class MultiTapInput : IMultiTapInput
 
     // this function is called when the input is triggered
     // it will check if the input is a multi tap input
-    public int MultiTap(KeyCode input, UltEvent ultEvent, BoolData isListening, int maxNum, float tapDuration, int tapCounter, TimerData timerData)
+    public int MultiTap(KeyCode input, UltEvent ultEvent, BoolData isListening, int maxTapNum, float tapDuration, int tapCounter, TimerData timerData)
     {
         if (Input.GetKeyDown(input) && isListening.GetData())
         {
@@ -25,7 +25,7 @@ public class MultiTapInput : IMultiTapInput
 
             Debug.Log("Tap " + tapCounter);
 
-            if (tapCounter >= maxNum)
+            if (tapCounter >= maxTapNum)
             {             
                 ultEvent.Invoke();
                 tapCounter = 0;
@@ -35,7 +35,7 @@ public class MultiTapInput : IMultiTapInput
         // using timer data to start and stop the timer
         // if tapCounter is greater than or equal to 1 but less than maxNum 
         //then start the timer and when the timer is 0 then set the tapCounter to 0
-        if (tapCounter >= 1 && tapCounter < maxNum)
+        if (tapCounter >= 1 && tapCounter < maxTapNum)
         {
             timerData.StartTimer();
 
@@ -55,7 +55,7 @@ public class MultiTapInput : IMultiTapInput
         return tapCounter;
     }
     
-    public int MultiTapButton(string input, UltEvent ultEvent, BoolData isListening, int maxNum, float tapDuration, int tapCounter, TimerData timerData)
+    public int MultiTapButton(string input, UltEvent ultEvent, BoolData isListening, int maxTapNum, float tapDuration, int tapCounter, TimerData timerData)
     {
         if (Input.GetKeyDown(input) && isListening.GetData())
         {
@@ -63,7 +63,7 @@ public class MultiTapInput : IMultiTapInput
 
             Debug.Log("Tap " + tapCounter);
 
-            if (tapCounter >= maxNum)
+            if (tapCounter >= maxTapNum)
             {
                 ultEvent.Invoke();
                 tapCounter = 0;
@@ -73,7 +73,7 @@ public class MultiTapInput : IMultiTapInput
         // using timer data to start and stop the timer
         // if tapCounter is greater than or equal to 1 but less than maxNum 
         //then start the timer and when the timer is 0 then set the tapCounter to 0
-        if (tapCounter >= 1 && tapCounter < maxNum)
+        if (tapCounter >= 1 && tapCounter < maxTapNum)
         {
             timerData.StartTimer();
 
