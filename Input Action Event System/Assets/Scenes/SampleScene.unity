@@ -962,9 +962,9 @@ MonoBehaviour:
     pressInput: 97
     holdInput: 0
     isListening: {fileID: 1632662136}
-    maxNum: 1
+    maxTapNum: 0
     tapCounter: 0
-    startDuration: 2
+    tapDuration: 0
     holdTime: 0
     inputEvent:
       _PersistentCalls:
@@ -993,9 +993,9 @@ MonoBehaviour:
     pressInput: 115
     holdInput: 0
     isListening: {fileID: 1632662136}
-    maxNum: 2
+    maxTapNum: 0
     tapCounter: 0
-    startDuration: 2
+    tapDuration: 0
     holdTime: 0
     inputEvent:
       _PersistentCalls:
@@ -1024,9 +1024,9 @@ MonoBehaviour:
     pressInput: 0
     holdInput: 114
     isListening: {fileID: 1906567435}
-    maxNum: 1
+    maxTapNum: 0
     tapCounter: 0
-    startDuration: 0
+    tapDuration: 0
     holdTime: 2
     inputEvent:
       _PersistentCalls:
@@ -1043,12 +1043,12 @@ MonoBehaviour:
           _Object: {fileID: 0}
   - inputName: Rotate sqaure other way
     CurrentInputType: 2
-    pressInput: 111
+    pressInput: 0
     holdInput: 108
     isListening: {fileID: 1906567435}
-    maxNum: 1
+    maxTapNum: 0
     tapCounter: 0
-    startDuration: 0
+    tapDuration: 0
     holdTime: 1
     inputEvent:
       _PersistentCalls:
@@ -1068,9 +1068,9 @@ MonoBehaviour:
     pressInput: 117
     holdInput: 105
     isListening: {fileID: 2051781113}
-    maxNum: 1
+    maxTapNum: 0
     tapCounter: 0
-    startDuration: 0
+    tapDuration: 0
     holdTime: 1
     inputEvent:
       _PersistentCalls:
@@ -1106,9 +1106,9 @@ MonoBehaviour:
     pressInput: 111
     holdInput: 112
     isListening: {fileID: 2051781113}
-    maxNum: 1
+    maxTapNum: 0
     tapCounter: 0
-    startDuration: 0
+    tapDuration: 0
     holdTime: 1
     inputEvent:
       _PersistentCalls:
