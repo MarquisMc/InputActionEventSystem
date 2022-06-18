@@ -912,7 +912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05e34ac1b565e4c4781217b69e9a1012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: IsListening
+  Name: MultiTap IsListening
   data: 1
 --- !u!1 &1742625795
 GameObject:
@@ -962,9 +962,9 @@ MonoBehaviour:
     pressInput: 97
     holdInput: 0
     isListening: {fileID: 1632662136}
-    maxTapNum: 0
+    maxTapNum: 2
     tapCounter: 0
-    tapDuration: 0
+    tapDuration: 3
     holdTime: 0
     inputEvent:
       _PersistentCalls:
@@ -993,9 +993,9 @@ MonoBehaviour:
     pressInput: 115
     holdInput: 0
     isListening: {fileID: 1632662136}
-    maxTapNum: 0
+    maxTapNum: 1
     tapCounter: 0
-    tapDuration: 0
+    tapDuration: 1
     holdTime: 0
     inputEvent:
       _PersistentCalls:
@@ -1071,7 +1071,7 @@ MonoBehaviour:
     maxTapNum: 0
     tapCounter: 0
     tapDuration: 0
-    holdTime: 1
+    holdTime: 0
     inputEvent:
       _PersistentCalls:
       - _Target: {fileID: 2051781112}
@@ -1109,7 +1109,7 @@ MonoBehaviour:
     maxTapNum: 0
     tapCounter: 0
     tapDuration: 0
-    holdTime: 1
+    holdTime: 0
     inputEvent:
       _PersistentCalls:
       - _Target: {fileID: 2051781112}
@@ -1261,7 +1261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05e34ac1b565e4c4781217b69e9a1012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: isListening
+  Name: Hold and Wait isListening
   data: 1
 --- !u!1 &2051781108
 GameObject:
@@ -1371,5 +1371,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05e34ac1b565e4c4781217b69e9a1012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: isListening
+  Name: Hold and Press isListening
   data: 1

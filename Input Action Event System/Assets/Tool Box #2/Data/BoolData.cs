@@ -48,18 +48,18 @@ public class BoolData : DataBase
         }
     }
 
-    public void boolToggle(float dur, BoolData boolData, bool boolToggle)
+    public void boolToggle(float dur, BoolData boolData, bool boolToggle, TimerData timerData)
     {
         if (boolData.GetData() == boolToggle)
         {
-            StartCoroutine(CallBoolToggle(dur, boolData, boolToggle));
+            timerData.SetTimer(dur);
+            timerData.StartTimer();
         }
-    }
 
-    IEnumerator CallBoolToggle(float dur, BoolData boolData, bool boolToggle)
-    {
-        yield return new WaitForSecondsRealtime(dur);
-
-        boolData.SetData(!boolToggle);
+        if (timerData.GetCurrentTime() <= 0)
+        {
+            boolData.SetData(!boolToggle);
+            timerData.SetTimer(dur);
+        }
     }
 }

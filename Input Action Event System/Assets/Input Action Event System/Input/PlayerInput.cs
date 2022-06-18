@@ -22,26 +22,41 @@ public class PlayerInput : MonoBehaviour
     {
         for (int i = 0; i < inputActions.Count; i++)
         {
-            // current input type is multi tap input
-            if (inputActions[i].CurrentInputType == InputActions.InputType.MultiTapInput)
-            {
-               inputActions[i].tapCounter = multiTapInputObj.MultiTap(inputActions[i].pressInput, inputActions[i].inputEvent,
-                inputActions[i].isListening, inputActions[i].maxTapNum, inputActions[i].tapDuration, inputActions[i].tapCounter, inputActions[i].timerData);
-            }
+            MultiTap(i);
 
-            // current input type is hold and press input
-            if (inputActions[i].CurrentInputType == InputActions.InputType.HoldAndPressInput)
-            {
-                holdInputObj.HoldAndPress(inputActions[i].holdInput, inputActions[i].pressInput,
-                inputActions[i].inputEvent, inputActions[i].isListening);
-            }
-            
-            // current input type is hold and wait input
-            if (inputActions[i].CurrentInputType == InputActions.InputType.HoldAndWaitInput)
-            {
-                holdInputObj.HoldAndWait(inputActions[i].holdInput, inputActions[i].inputEvent,
-                inputActions[i].isListening, inputActions[i].holdTime, inputActions[i].timerData);
-            }
+            HoldAndPress(i);
+
+            HoldAndWait(i);
+        }
+    }
+
+    void MultiTap(int index)
+    {
+        // current input type is multi tap input
+        if (inputActions[index].CurrentInputType == InputActions.InputType.MultiTapInput)
+        {
+            inputActions[index].tapCounter = multiTapInputObj.MultiTap(inputActions[index].pressInput, inputActions[index].inputEvent,
+            inputActions[index].isListening, inputActions[index].maxTapNum, inputActions[index].tapDuration, inputActions[index].tapCounter, inputActions[index].timerData);
+        }
+    }
+
+    void HoldAndPress(int index)
+    {
+        // current input type is hold and press input
+        if (inputActions[index].CurrentInputType == InputActions.InputType.HoldAndPressInput)
+        {
+            holdInputObj.HoldAndPress(inputActions[index].holdInput, inputActions[index].pressInput,
+            inputActions[index].inputEvent, inputActions[index].isListening);
+        }
+    }
+
+    void HoldAndWait(int index)
+    {
+        // current input type is hold and wait input
+        if (inputActions[index].CurrentInputType == InputActions.InputType.HoldAndWaitInput)
+        {
+            holdInputObj.HoldAndWait(inputActions[index].holdInput, inputActions[index].inputEvent,
+            inputActions[index].isListening, inputActions[index].holdTime, inputActions[index].timerData);
         }
     }
 }
