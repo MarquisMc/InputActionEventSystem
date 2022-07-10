@@ -4,7 +4,7 @@ using UnityEngine;
 using UltEvents;
 using UnityEditor;
 
-public class PlayerInput : MonoBehaviour
+public class InputEvents : MonoBehaviour
 {
     // TODO: I might need to move these objects to InputActions.cs
     MultiTapInput multiTapInputObj = new MultiTapInput();

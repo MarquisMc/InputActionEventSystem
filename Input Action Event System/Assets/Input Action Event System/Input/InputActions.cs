@@ -20,6 +20,8 @@ public class InputActions
 
         NUM_STATES
     }
+    
+    [Space(10f)]
 
     public InputType CurrentInputType = InputType.MultiTapInput;
 
@@ -31,6 +33,8 @@ public class InputActions
     // HoldAndWaitInput variable
     // the input that is held down
     public KeyCode holdInput;
+
+    [Space(10f)]
 
     // MultiTapInput variable
     // HoldAndPressInput variable

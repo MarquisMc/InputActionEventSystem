@@ -12,4 +12,16 @@ public class TimerEvent : MonoBehaviour
             ultEvent.Invoke();
         }
     }
+
+    public bool CheckTimerEvent(TimerData timer, int timerEventInt)
+    {
+        if (timer.GetCurrentTimeInt() == timerEventInt)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
