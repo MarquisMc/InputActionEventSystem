@@ -1,7 +1,9 @@
 # InputActionEventSystem
 
+![](Images/AddInputEventsGif.gif)
+
 ## Description
-Input Action Event System is a input system that pairs inputs and events together. this helps with prototyping faster by being able to switch out inputs and aevents quickly in the inspector.
+Input Action Event System is a input system that pairs inputs and events together. this helps with prototyping faster by being able to switch out inputs and events quickly in the inspector.
 
 Following features
 - Easy to add and remove Input Action Events in the inspector. 
