@@ -11,6 +11,14 @@ Following features
 - BoolData to turn off inputs outside the script.
 
 ## Installation
+### Third Party Tools
+
+Using Ult Events in the package to expained the Event Sytsem of the tool.
+
+[UltEvent](https://assetstore.unity.com/packages/tools/gui/ultevents-111307#description)
+
+Download the Ult Event tool on the unity assest store.
+this tool comes pre installed with this tool.
 
 ### Package Manager 
 
@@ -73,3 +81,42 @@ https://github.com/MarquisMc/InputActionEventSystem.git
 - Hold Input 
 - Hold Time
 - Input Event
+
+### 4. Using BoolData
+
+![](Images/BoolDataToListeningGif.gif)
+
+#### Code Example on how to use A BoolData
+``` C#
+public bool UsingBoolData(TextMeshProUGUI text, BoolData boolData)
+{
+    if (text.text != "Counter: 100") 
+    {
+        boolData.SetData(false);
+        return false;
+    }
+
+    return boolData.GetData();
+}
+```
+### Live Examples
+
+#### MultiTap Live
+
+![](Images/MultiTapLiveGif.gif)
+
+#### HoldAndPress Live
+
+![](Images/HoldAndPressLiveGif.gif)
+
+#### HoldAndWait Live 
+
+![](Images/HoldInputLiveGif.gif)
+
+## Support 
+
+Need support or have ideas for new features for this tool 
+Contact me at reachmarquismccann@gmail.com
+
+## License 
+[MIT](https://choosealicense.com/licenses/mit/)
