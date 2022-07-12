@@ -17,6 +17,7 @@ public class InputActions
         MultiTapInput,
         HoldAndPressInput,
         HoldAndWaitInput,
+        GetKeyUpInput,
 
         NUM_STATES
     }

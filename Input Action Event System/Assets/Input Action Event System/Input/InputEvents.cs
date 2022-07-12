@@ -27,6 +27,8 @@ public class InputEvents : MonoBehaviour
             HoldAndPress(i);
 
             HoldAndWait(i);
+
+            GetKeyUp(i);
         }
     }
 
@@ -57,6 +59,16 @@ public class InputEvents : MonoBehaviour
         {
             holdInputObj.HoldAndWait(inputActions[index].holdInput, inputActions[index].inputEvent,
             inputActions[index].isListening, inputActions[index].holdTime, inputActions[index].timerData);
+        }
+    }
+
+    void GetKeyUp(int index)
+    {
+        // current input type is get key up input
+        if (inputActions[index].CurrentInputType == InputActions.InputType.GetKeyUpInput)
+        {
+            holdInputObj.GetKeyUp(inputActions[index].pressInput, inputActions[index].inputEvent,
+            inputActions[index].isListening);
         }
     }
 }
