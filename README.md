@@ -47,6 +47,7 @@ https://github.com/MarquisMc/InputActionEventSystem.git
   - MultiTapInput
   - HoldAndPressInput
   - HoldAndWaitInput
+  - GetKeyUpInput
 - Press Input: The input that has to be pressed for MultiTap. EX. A
 - Hold Input: The input that has to held for HoldAndWait and HoldAndPress. EX. D
 - Is Listening: A BoolData that has to be dragged in, used to turn on/off Input Events.
@@ -84,6 +85,13 @@ https://github.com/MarquisMc/InputActionEventSystem.git
 - Hold Time
 - Input Event
 
+### Get Key Up Input
+![](Images/GetKeyUpInputType.PNG)
+
+#### Variables for Get Key Up Input
+- Press Key
+- Input Event
+
 ### 4. Using BoolData
 
 ![](Images/BoolDataToListeningGif.gif)
@@ -114,6 +122,10 @@ public bool UsingBoolData(TextMeshProUGUI text, BoolData boolData)
 #### HoldAndWait Live 
 
 ![](Images/HoldInputLiveGif.gif)
+
+#### GetKeyUp Live
+
+![](Images/GetKeyUpLiveGif.gif)
 
 ## Support 
 
