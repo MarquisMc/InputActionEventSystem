@@ -3,7 +3,7 @@
 ![](Images/AddInputEventsGif.gif)
 
 ## Description
-Input Action Event System is a input system that pairs inputs and events together. this helps with prototyping faster by being able to switch out inputs and events quickly in the inspector.
+Input Action Event System is a input system that pairs inputs and events together. This helps with prototyping faster by being able to switch out inputs and events quickly in the inspector.
 
 Following features
 - Easy to add and remove Input Action Events in the inspector. 
@@ -20,7 +20,7 @@ Using Ult Events in the package to expained the Event Sytsem of the tool.
 [UltEvent](https://assetstore.unity.com/packages/tools/gui/ultevents-111307#description)
 
 Download the Ult Event tool on the unity assest store.
-this tool comes pre installed with this tool.
+This tool comes pre installed with this tool.
 
 ### Package Manager 
 
